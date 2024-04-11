@@ -32,15 +32,16 @@ public class TypeCasting
         float myFloat;
         double myDouble = 123.4567890123;
 
-        // an int won't necessarily fit in a long
-        // myInt = myLong;
+        // an int won't necessarily fit in a long, unless you convert it into an int (int)
+         myInt = (int) myLong;
+        System.out.println("Int "+myInt);
 
-        // a double won't necessarily fit in a float
-        // myFloat = myDouble;
-
-        // a float probably won't necessarily fit in an int
-        // myLong = myFloat;
-
+        // a double won't necessarily fit in a float, unless you convert it to a float
+         myFloat = (float) myDouble;
+        System.out.println("Float "+myFloat);
+        // a float probably won't necessarily fit in an int, unless you convert it to an long (long)
+         myLong = (long) myFloat;
+        System.out.println("Long "+myLong);
 
     }
 }
