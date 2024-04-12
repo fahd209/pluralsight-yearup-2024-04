@@ -5,14 +5,7 @@ public class Main
 
     public static void main(String[] args)
     {
-        // variable naming
-        // must start with a letter or _
-        // cannot have spaces in the name
-        // camelCasing
-        // PascalCasing
-        // snake_case -- not really used in java
-        // UPPER_CASE -- in Java this is for constants
-        // kebab-case -- does not work in Java (but used in other languages)
+
 
         // numbers
 

@@ -7,13 +7,13 @@ public class Main
         // declare variables for each of the following:
 
         // a vehicle identification number in the range 1000000 - 9999999
-
+        int identificationNum = 5555555;
 
         // a vehicle make /model (i.e. Ford Explorer)
-
+        String model = "Honda";
 
         // a vehicle color
-
+        String color = "red";
 
         // whether the vehicle has a towing package
 
