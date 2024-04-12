@@ -42,5 +42,7 @@ public class Main
         String favoriteRestaurant = "Red Lobster";
         System.out.println("Favorite restaurant: " + favoriteRestaurant);
 
+        // char secondLetter = 'F';
+
     }
 }
