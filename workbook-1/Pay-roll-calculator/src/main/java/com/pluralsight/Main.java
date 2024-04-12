@@ -34,7 +34,11 @@ public class Main {
             //System.out.println(overTimePay);
         }
         gross = overTimePay + (payRate * hoursWorked);
-        System.out.printf("Your gross for %.2f hours is $ %.2f",hoursWorked, gross );
+
+        //printing user's pay and hours
+        System.out.println("Regular hours: " + hoursWorked);
+        System.out.println("Over time: " + overTimeHours);
+        System.out.printf("Your gross for %.2f Regular hours and %.2f over time hours is $ %.2f",hoursWorked, overTimeHours ,gross );
 
         userInput.close();
     }
