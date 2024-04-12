@@ -8,33 +8,40 @@ public class Main
 
         // a vehicle identification number in the range 1000000 - 9999999
         int identificationNum = 5555555;
-
+        System.out.println("The id number of the vehicle is: " + identificationNum);
         // a vehicle make /model (i.e. Ford Explorer)
-        String model = "Honda";
+        String make = "Honda";
+        String model = "accord";
+
+        System.out.println("The vehicle make is " + make + " and the model is " + model);
 
         // a vehicle color
         String color = "red";
+        System.out.println("The vehicle color is " + color);
 
         // whether the vehicle has a towing package
-
+        boolean vehicleHasTowingPackage = false;
+        System.out.println("Does the vehicle have a towing package? " + vehicleHasTowingPackage);
 
         // an odometer reading
 
 
         // a price
-
+        double vehiclePrice = 50000;
+        System.out.println("The vehicles price is " + vehiclePrice);
 
         // a quality rating (A, B, or C)
-
+        char quality = 'A';
+        System.out.println("The vehicles rating is " + quality);
 
         // a phone number
-
+        long phoneNumber = 2095632145;
 
         // a social security number
-
+        int SSN = 125530258;
 
         // a zip code
-
+        int zipCode = 95630;
 
 
     }
