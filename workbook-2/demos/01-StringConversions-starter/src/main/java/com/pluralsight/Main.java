@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Main
@@ -13,6 +14,17 @@ public class Main
     public static void splittingStrings()
     {
         // we can break a sentence into words
+        Scanner userInput = new Scanner(System.in);
+
+        System.out.println("Enter your age: ");
+        String ageInput = userInput.nextLine();
+        int age = Integer.parseInt(ageInput);
+
+        if(age >= 18){
+            System.out.println("you can vote");
+        } else {
+            System.out.println("can't vote yet");
+        }
     }
 
     public static void convertNumbers()
