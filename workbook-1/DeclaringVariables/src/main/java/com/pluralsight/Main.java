@@ -7,8 +7,9 @@ public class Main
         // declare variables for each of the following:
 
         // a vehicle identification number in the range 1000000 - 9999999
-        int identificationNum = 5555555;
+        long identificationNum = Math.round(Math.random() * 9999999) + 1000000;
         System.out.println("The id number of the vehicle is: " + identificationNum);
+
         // a vehicle make /model (i.e. Ford Explorer)
         String make = "Honda";
         String model = "accord";
@@ -36,12 +37,15 @@ public class Main
 
         // a phone number
         long phoneNumber = 2095632145;
+        System.out.println("Phone: " + phoneNumber);
 
         // a social security number
         int SSN = 125530258;
+        System.out.println("SSN: " + SSN);
 
         // a zip code
         int zipCode = 95630;
+        System.out.println("Zip code: " + zipCode);
 
 
     }
