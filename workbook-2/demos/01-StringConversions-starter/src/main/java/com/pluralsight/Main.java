@@ -9,6 +9,7 @@ public class Main
 {
     public static void main(String[] args)
     {
+
     }
 
     public static void splittingStrings()
@@ -43,11 +44,12 @@ public class Main
     {
         String userInput = "2002-10-17";
         LocalDate birthDay = LocalDate.parse(userInput);
+        System.out.println(birthDay);
     }
 
     public static void convertDatesCustom()
     {
-        String userInput;
+        String userInput = "2020-10-17";
         DateTimeFormatter formatter;
 
         userInput = "10/17/2022";
