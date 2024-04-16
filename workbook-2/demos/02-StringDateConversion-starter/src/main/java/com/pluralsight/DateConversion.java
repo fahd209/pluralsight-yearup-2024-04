@@ -7,7 +7,8 @@ public class DateConversion
 {
     public static void main(String[] args)
     {
-
+        convertDatesBasic();
+        convertDatesCustom();
     }
 
     public static void convertDatesBasic()
@@ -24,9 +25,11 @@ public class DateConversion
         userInput = "10/17/2022";
         formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         LocalDate birthDay = LocalDate.parse(userInput, formatter);
+        System.out.println(birthDay);
 
         userInput = "7 Oct 2002";
         formatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         birthDay = LocalDate.parse(userInput, formatter);
+        System.out.println(birthDay.getMonth()); //<== getting month
     }
 }
