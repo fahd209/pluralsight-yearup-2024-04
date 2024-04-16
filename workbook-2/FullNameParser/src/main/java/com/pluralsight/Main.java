@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args)
     {
         String fullName = getFullName(); //<== what ever getFullName func returns is stored in fullName.
-        printNames(fullName);// printing first, middle, and last name by passing fullName into the printNames func.
+        printNames(fullName); // printing first, middle, and last name by passing fullName into the printNames func.
     }
 
     public static String getFullName(){
@@ -24,15 +24,14 @@ public class Main {
         //String middle;
         String lastName = "";
         String middleName = "";
-        if(name.length == 2){
-            lastName = name[1];
-        } else if(name.length == 3) {
+        if(name.length > 2){
             middleName = name[1];
             lastName = name[2];
+
+        } else  {
+            lastName = name[1];
         }
-
-
-
+        
         System.out.println("First name: " + firstName);
         System.out.println("Middle name: " + middleName);
         System.out.println("Last name: " + lastName);
