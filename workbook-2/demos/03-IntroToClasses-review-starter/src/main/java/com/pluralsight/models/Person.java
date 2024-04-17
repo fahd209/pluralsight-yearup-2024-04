@@ -6,6 +6,7 @@ public class Person
     private String firstName;
     private String lastName;
     private int age;
+    private int energy;
 
     // constructors
     public Person(String firstName, String lastName, int age)
@@ -13,11 +14,14 @@ public class Person
        this.firstName = firstName;
        this.lastName = lastName;
        this.age = age;
+       this.energy = 100;
     }
 
-    public Person()
-    {
-
+    public Person(){
+        this.firstName = "";
+        this.lastName = "";
+        this.age = 0;
+        this.energy = 100;
     }
 
     // getters and setter
@@ -48,4 +52,28 @@ public class Person
         this.age = age;
     }
 
+    public int getEnergy(){
+        return energy;
+    }
+
+    public void work(int hours){
+        int energyConsumed = hours * 10;
+        energy -= energyConsumed;
+        System.out.println();
+        System.out.println(firstName + " worked " + hours + " hours and lost " + energyConsumed + " units of energy");
+    }
+
+    public void eat()
+    {
+        energy += 20;
+        System.out.println();
+        System.out.println(firstName + " ate and gained 20 units of energy");
+    }
+
+    public void sleep(int hours){
+        int energyGained = hours * 20;
+        energy += energyGained;
+        System.out.println();
+        System.out.println(firstName + " slept for " + hours + " hours and gained " + energyGained + "units");
+    }
 }
