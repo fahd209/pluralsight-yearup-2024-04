@@ -6,9 +6,11 @@ public class Main {
     static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) {
+        //declaring objects
 
         CellPhone phone1 = new CellPhone();
-        CellPhone phone2 = new CellPhone();
+        CellPhone phone2;
+        //CellPhone phone3 = new CellPhone(12365, "Iphone 8", "verizon", "2036541236", "Aliiii");
 
         // getting serial num for phone 1
         Long serialNum = getSerialNum();
@@ -35,23 +37,24 @@ public class Main {
         System.out.println("Phone 2");
         System.out.println("-------------");
         Long serialNum2 = getSerialNum();
-        phone2.setSerialNumber(serialNum2);
+       // phone2.setSerialNumber(serialNum2);
 
         //getting model for phone 2
         String model2 = getModel();
-        phone2.setModel(model2);
+        //phone2.setModel(model2);
 
         // getting carrier for phone 2
         String carrier2 = getCarrier();
-        phone2.setCarrier(carrier);
+        //phone2.setCarrier(carrier);
 
         //getting phone number for phone 2
         String phoneNumber2 = getNumber();
-        phone2.setPhoneNumber(phoneNumber2);
+       // phone2.setPhoneNumber(phoneNumber2);
 
         // getting owner for phone 2
         String owner2 = getOwner();
-        phone2.setOwner(owner2);
+        //phone2.setOwner(owner2);
+        phone2 = new CellPhone(serialNum2, model2, carrier2, phoneNumber2,owner2);
 
         // displaying phones
         printCellPhone(phone1);
