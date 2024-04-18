@@ -14,7 +14,7 @@ public class Main {
         for(int i = 0; i < 100; i++){
             roll1 = dice.roll();
             roll2 = dice.roll();
-            int sum = roll1 - roll2;
+            int sum = roll1 + roll2;
 
             System.out.println("Roll " + i + " sum: " + sum);
 
@@ -27,7 +27,6 @@ public class Main {
             } else if(sum == 7){
                 sevenCounter++;
             }
-
 
         }
 
