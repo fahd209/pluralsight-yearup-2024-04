@@ -13,12 +13,12 @@ public class Main {
         int sevenCounter = 0;
 
         // looping 100x, checking, sum and adding count
-        for(int i = 0; i < 100; i++){
+        for(int i = 1; i < 100 + 1; i++){
             roll1 = dice.roll();
             roll2 = dice.roll();
             int sum = roll1 + roll2;
 
-            System.out.println("Roll " + i + " sum: " + sum);
+            System.out.println("Roll " + i + ": " + roll1 + " - " + roll2 + " sum: " + sum);
 
             if(sum == 2){
                 twoCounter++;
