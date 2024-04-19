@@ -13,7 +13,7 @@ public class Main {
         int sevenCounter = 0;
 
         // looping 100x, checking, sum and adding count
-        for(int i = 1; i < 100 + 1; i++){
+        for(int i = 1; i <= 20; i++){
             roll1 = dice.roll();
             roll2 = dice.roll();
             int sum = roll1 + roll2;
