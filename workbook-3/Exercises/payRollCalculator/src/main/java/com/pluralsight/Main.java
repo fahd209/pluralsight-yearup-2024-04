@@ -11,6 +11,7 @@ public class Main
 
     public static void main(String[] args)
     {
+        // calling the read file method
         readFile();
     }
     public static void readFile()
@@ -19,6 +20,7 @@ public class Main
 
         try(Scanner fileReader = new Scanner(file))
         {
+            //skipping the first line
             fileReader.nextLine();
             while(fileReader.hasNext())
             {
@@ -29,10 +31,14 @@ public class Main
                 double hours = Double.parseDouble(columns[2]);
                 double pay = Double.parseDouble(columns[3]);
 
+                // creating an object of employee with the data from the csv file
                 Employee employee = new Employee(employeeID, name, hours, pay);
+                //adding it to the array
                 employees.add(employee);
 
             }
+
+            //calling my print function to print out the array
             printfile(employees);
         }
         catch (IOException e)
