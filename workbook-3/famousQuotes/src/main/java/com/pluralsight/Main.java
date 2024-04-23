@@ -23,16 +23,16 @@ public class Main {
     }
     public static void getQuotesNumber(String[] quotes)
     {
-        int qouteNum = 1;
-        while(qouteNum != 0){
+        int index = 1;
+        while(index != 0){
             try
             {
                 System.out.println("Enter a number 1 - 10 for a qoute: ");
                 String qouteNumInput = userInput.nextLine();
-                qouteNum = Integer.parseInt(qouteNumInput);
+                index = Integer.parseInt(qouteNumInput);
 
-                if(qouteNum != 0){
-                    System.out.println(quotes[qouteNum - 1]);
+                if(index != 0){
+                    System.out.println(quotes[index - 1]);
                 }
 
             }catch (NumberFormatException e)
@@ -43,7 +43,5 @@ public class Main {
                 System.out.println("Invalid input please enter a number 1 - 10");
             }
         }
-
-
     }
 }
