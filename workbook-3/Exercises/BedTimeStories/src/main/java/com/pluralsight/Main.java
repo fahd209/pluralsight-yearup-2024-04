@@ -24,17 +24,23 @@ public class Main {
     {
         File file = new File("files\\"+storyName);
 
-        try(Scanner fileReader = new Scanner(file))
-        {
-            while(fileReader.hasNext()){
-                String line = fileReader.nextLine();
-                System.out.println(line);
+            try(Scanner fileReader = new Scanner(file))
+            {
+                while(fileReader.hasNext()){
+                    String line = fileReader.nextLine();
+                    System.out.println(line);
+                }
             }
-        }
-        catch (IOException e)
-        {
-            System.out.println("File does not exist");
-        }
+            catch (IOException e)
+            {
+                while (!file.exists()){
+                    System.out.println("File does not exist. please make sure the story's name is exact as the following");
+                    promptUserForStory();
+
+                }
+            }
+
+
 
     }
 }
