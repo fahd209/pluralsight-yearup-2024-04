@@ -16,12 +16,9 @@ public class Main
         loadProducts();
 
         System.out.println("There are " + products.size() + " products");
+        Product airpods = new Product("sku123", "Air pod 3", 149.99, "Electronics");
+        printProduct(products);
 
-        for (int i = 0; i < products.size(); i++)
-        {
-            Product product = products.get(i);
-            System.out.println(product.getName());
-        }
     }
 
     public static void loadProducts()
@@ -55,11 +52,22 @@ public class Main
                 // add the new product to the products ArrayList
                 products.add(product);
 
+
             }
         }
         catch(IOException ex)
         {
 
         }
+    }
+
+    public static void printProduct(ArrayList<Product> products)
+    {
+
+        for (Product product : products)
+        {
+            System.out.printf("%-7s %-30s $ %6.2f %s \n", product.getSku(), product.getName(), product.getPrice(), product.getDepartment());
+        }
+
     }
 }

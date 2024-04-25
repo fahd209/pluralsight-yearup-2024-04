@@ -9,7 +9,7 @@ public class BufferedWriterDemo
 {
     public static void main(String[] args)
     {
-        String[] languages = {"Java", "C#", "JavaScript", "Python", "SQL"};
+        String[] languages = {"Java", "C#", "JavaScript", "Python", "SQL", "hello"};
         writeToFile(languages);
     }
 
