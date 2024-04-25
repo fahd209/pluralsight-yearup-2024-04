@@ -13,7 +13,6 @@ public class LoggerDemo {
                 PrintWriter printWriter = new PrintWriter(fileWriter);
         )
         {
-            printWriter.printf();
         }
         catch(Exception e)
         {
