@@ -31,7 +31,7 @@ public class Main {
     public static void displayDateAndTime()
     {
         LocalDateTime today = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, MMM d, yyyy hh:mm a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMM d, yyyy hh:mm a");
         System.out.println(today.format(formatter));
     }
 }

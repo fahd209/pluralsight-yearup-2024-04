@@ -1,2 +1,5 @@
-2024-04-25 17:04:36.989614600 Application lunched
-2024-04-25 17:04:36.989614600 Application closed
+04/25/2024 08:27 PM Application lunched
+04/25/2024 08:27 PM Searched : hello world
+04/25/2024 08:28 PM Searched : How do I use chatGPT
+04/25/2024 08:28 PM Searched : I love java
+04/25/2024 08:28 PM Application Exit
