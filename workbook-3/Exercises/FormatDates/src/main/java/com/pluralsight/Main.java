@@ -2,24 +2,36 @@ package com.pluralsight;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args)
     {
-        disPlayDateAndTime();
+        displayDateNumberedFormat();
+        displayDateLetterDateFormat();
+        displayDateAndTime();
     }
-    public static void disPlayDateAndTime()
+    public static void displayDateNumberedFormat()
     {
-        LocalDate currentDate = LocalDate.now();
-        LocalTime time = LocalTime.now();
+        System.out.println("Date");
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        System.out.println(today.format(formatter));
+    }
 
-        DayOfWeek day = currentDate.getDayOfWeek();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
+    public static void displayDateLetterDateFormat()
+    {
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+        System.out.println(today.format(formatter));
+    }
 
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
-
-        System.out.println(day +", " + currentDate.format(formatter) + " " + time.format(timeFormatter));
+    public static void displayDateAndTime()
+    {
+        LocalDateTime today = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, MMM d, yyyy hh:mm a");
+        System.out.println(today.format(formatter));
     }
 }
