@@ -1,5 +1,7 @@
-04/25/2024 08:27 PM Application lunched
-04/25/2024 08:27 PM Searched : hello world
-04/25/2024 08:28 PM Searched : How do I use chatGPT
-04/25/2024 08:28 PM Searched : I love java
-04/25/2024 08:28 PM Application Exit
+04/25/2024 08:49:02 PM Application lunched
+04/25/2024 08:49:05 PM Searched : helllo
+04/25/2024 08:49:09 PM Application Exit
+04/25/2024 08:49:20 PM Application lunched
+04/25/2024 08:49:24 PM Searched : I love java
+04/25/2024 08:49:28 PM Searched : Hello world
+04/25/2024 08:49:28 PM Application Exit

@@ -38,7 +38,7 @@ public class Main {
     public static void logLunch()
     {
         LocalDateTime currentDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm:ss a");
 
         try(
                 FileWriter inputStream = new FileWriter(logger, true);
@@ -57,7 +57,7 @@ public class Main {
     public static void logExit()
     {
         LocalDateTime currentDate = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm:ss a");
         try(
                 FileWriter inputStream = new FileWriter(logger, true);
                 PrintWriter writer = new PrintWriter(inputStream);
@@ -76,7 +76,7 @@ public class Main {
     public static void logSearch(String usersSearch)
     {
         LocalDateTime currentDateAndTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy hh:mm:ss a");
 
         try(
             FileWriter inputStream = new FileWriter(logger, true);
@@ -94,6 +94,5 @@ public class Main {
             System.out.println("Something went wrong");
             e.printStackTrace();
         }
-
     }
 }
