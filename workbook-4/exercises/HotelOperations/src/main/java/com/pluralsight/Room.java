@@ -5,6 +5,7 @@ public class Room {
     private double price;
     private boolean isOccupied;
     private boolean isDirty;
+    private boolean isCheckedIn;
 
     public Room(int numberOfBed, double price, boolean isOccupied, boolean isDirty) {
         this.numberOfBed = numberOfBed;
@@ -54,11 +55,15 @@ public class Room {
     {
         this.isOccupied = true;
         this.isDirty = true;
+        this.isCheckedIn = true;
+        System.out.println("Room is checked in");
     }
 
     public void checkOut()
     {
         this.isOccupied = false;
+        this.isCheckedIn = false;
+        System.out.println("Room is checked out");
     }
 
     public void cleanRoom()
