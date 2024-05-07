@@ -18,6 +18,7 @@ public class Logger
     private String fileName;
     private String filePath;
 
+
     public Logger(String fileName)
     {
         File directory = new File(LOG_DIRECTORY_PATH);

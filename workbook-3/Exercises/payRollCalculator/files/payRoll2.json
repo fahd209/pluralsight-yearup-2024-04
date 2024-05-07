@@ -1,4 +1,5 @@
-[{"Id": 10, "Name": "Dana Wyatt", "Gross": 656.25 },
+[
+  {"Id": 10, "Name": "Dana Wyatt", "Gross": 656.25 },
 {"Id": 20, "Name": "Ezra Aiden", "Gross": 284.75 },
 {"Id": 30, "Name": "Brittany Thibbs", "Gross": 660.0 },
 {"Id": 40, "Name": "Zephaniah Hughes", "Gross": 20.0 },
