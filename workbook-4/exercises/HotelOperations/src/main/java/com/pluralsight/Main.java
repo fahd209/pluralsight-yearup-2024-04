@@ -1,10 +1,11 @@
 package com.pluralsight;
 
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args)
     {
-
-        Room room1 = new Room(1,200,false,false);
+        Room room1 = new Room(1,200,false,true);
         System.out.println("Is room available: " + room1.isAvailable());
 
         Reservation reservation1 = new Reservation("king", 2,false);

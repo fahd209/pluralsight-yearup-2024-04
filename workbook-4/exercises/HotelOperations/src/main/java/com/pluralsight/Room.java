@@ -47,7 +47,6 @@ public class Room {
 
     public boolean isAvailable()
     {
-        boolean isAvailable = !isDirty && !isOccupied ? true : false;
-        return isAvailable;
+        return !isDirty && !isOccupied;
     }
 }

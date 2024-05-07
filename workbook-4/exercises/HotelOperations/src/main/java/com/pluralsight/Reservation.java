@@ -23,7 +23,7 @@ public class Reservation {
 
     public double getPrice() {
         price = getRoomType().equalsIgnoreCase("king") ? 139.00 : 124.00;
-        price = isWeekEnd() == true ? price * 1.1 : price;
+        price = isWeekEnd() ? price * 1.1 : price;
         price = price * getNumberOfNight();
         return price;
     }

@@ -67,14 +67,11 @@ public class Employee {
 
     public double getOverTimeHours()
     {
-        double overTimeHours = getHoursWorked() > 40 ? getHoursWorked() - 40 : 0;
-        return overTimeHours;
+        return getHoursWorked() > 40 ? getHoursWorked() - 40 : 0;
     }
 
     public double getRegularHours()
     {
-        double regularHours = getHoursWorked() - getOverTimeHours();
-
-        return regularHours;
+        return getHoursWorked() - getOverTimeHours();
     }
 }
