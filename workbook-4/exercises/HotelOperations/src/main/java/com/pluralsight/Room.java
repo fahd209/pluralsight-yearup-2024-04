@@ -53,21 +53,32 @@ public class Room {
 
     public void checkIn()
     {
-        this.isOccupied = true;
-        this.isDirty = true;
-        this.isCheckedIn = true;
-        System.out.println("Room is checked in");
+        if(isAvailable() && !isCheckedIn()) {
+            this.isOccupied = true;
+            this.isDirty = true;
+            this.isCheckedIn = true;
+            System.out.println("Room is checked in");
+        } else {
+            System.out.println("Room is not available");
+        }
     }
 
     public void checkOut()
     {
-        this.isOccupied = false;
-        this.isCheckedIn = false;
-        System.out.println("Room is checked out");
+        if(isCheckedIn()) {
+            this.isOccupied = false;
+            this.isCheckedIn = false;
+            System.out.println("Room is checked out");
+        }
     }
 
     public void cleanRoom()
     {
         this.isDirty = false;
+    }
+
+    public boolean isCheckedIn()
+    {
+        return isCheckedIn;
     }
 }

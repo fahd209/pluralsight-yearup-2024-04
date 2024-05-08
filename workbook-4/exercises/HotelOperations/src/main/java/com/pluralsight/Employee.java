@@ -10,7 +10,16 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
     private boolean isClockedIn;
+    double timeIn;
+    double timeOut;
 
+    public Employee(String employeeId, String name, String department, double payRate)
+    {
+        this.employeeId = employeeId;
+        this.name = name;
+        this.department = department;
+        this.payRate = payRate;
+    }
     public Employee(String employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
         this.name = name;
@@ -59,6 +68,11 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    public boolean isClockedIn()
+    {
+        return isClockedIn;
+    }
+
     public double getTotalPay()
     {
         double totalPay = 0;
@@ -95,26 +109,53 @@ public class Employee {
 
     public void punchIn(double time)
     {
-        System.out.println("Clocked in at " + time);
+        if(!isClockedIn)
+        {
+            timeIn = time;
+            System.out.println("clocked in at " + time);
+            this.isClockedIn = true;
+        }
     }
 
     public void punchOut(double time)
     {
-        System.out.println("Clocked out at: " + time);
+        if(isClockedIn)
+        {
+            System.out.println("clocked in at " + time);
+            this.isClockedIn = false;
+            timeOut = time;
+        }
+        hoursWorked = timeOut - timeIn;
     }
 
     public void punchIn()
     {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("hh:mm a");
-        LocalTime currentTime = LocalTime.now();
-        System.out.println("Clocked in at " + currentTime.format(format));
+        if(!isClockedIn()) {
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("hh:mm a");
+            LocalTime currentTime = LocalTime.now();
+            int hours = currentTime.getHour();
+            double minutes = currentTime.getMinute();
 
+            timeIn = hours + minutes;
+            System.out.println("Clocked in at " + currentTime.format(format));
+            isClockedIn = true;
+        }
     }
 
     public void punchOut()
     {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("hh:mm a");
-        LocalTime currentTime = LocalTime.now();
-        System.out.println("Clocked out at " + currentTime.format(format));
+        if(isClockedIn()) {
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("hh:mm a");
+            LocalTime currentTime = LocalTime.now();
+            int hours = currentTime.getHour();
+            double minutes = currentTime.getMinute();
+
+            timeOut = hours + minutes;
+
+            hoursWorked = timeOut - timeIn;
+            System.out.println("Clocked out at " + currentTime.format(format));
+            System.out.println("Your worked: " + hoursWorked);
+            isClockedIn = false;
+        }
     }
 }
