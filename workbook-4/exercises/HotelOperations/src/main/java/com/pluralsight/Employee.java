@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Employee {
     private String employeeId;
     private String name;
@@ -88,5 +91,30 @@ public class Employee {
             System.out.println("Clocked out at " + time);
             this.isClockedIn = false;
         }
+    }
+
+    public void punchIn(double time)
+    {
+        System.out.println("Clocked in at " + time);
+    }
+
+    public void punchOut(double time)
+    {
+        System.out.println("Clocked out at: " + time);
+    }
+
+    public void punchIn()
+    {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("hh:mm a");
+        LocalTime currentTime = LocalTime.now();
+        System.out.println("Clocked in at " + currentTime.format(format));
+
+    }
+
+    public void punchOut()
+    {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("hh:mm a");
+        LocalTime currentTime = LocalTime.now();
+        System.out.println("Clocked out at " + currentTime.format(format));
     }
 }
