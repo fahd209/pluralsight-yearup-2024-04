@@ -28,17 +28,17 @@ public class Hotel {
     {
         if(isSuite)
         {
-            if(numberOfRooms <= numberOfSuites)
+            if(numberOfRooms <= getAvailableSuites())
             {
-                this.numberOfSuites -= numberOfRooms;
+                bookedSuites += numberOfRooms;
                 return true;
             }
         }
         else
         {
-            if(numberOfRooms <= numberOfRoomsAvailable)
+            if(numberOfRooms <= getNumberOfRoomsAvailable())
             {
-                this.numberOfRoomsAvailable -= numberOfRooms;
+                this.bookedBasicRooms += numberOfRooms;
                 return true;
             }
         }
@@ -47,12 +47,12 @@ public class Hotel {
 
     public int getAvailableSuites()
     {
-        return numberOfSuites;
+        return numberOfSuites - bookedSuites;
     }
 
     public int getNumberOfRoomsAvailable()
     {
-        return this.numberOfRoomsAvailable;
+        return numberOfRoomsAvailable - bookedBasicRooms;
     }
 
 

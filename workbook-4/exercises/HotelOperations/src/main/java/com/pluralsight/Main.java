@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println();
         Hotel hotel = new Hotel("Year up hotel", 50, 50);
-        System.out.println("is room booked: " + hotel.BookRoom(4, true));
+        System.out.println("is room booked: " + hotel.BookRoom(4, false));
         System.out.println("Available rooms: " + hotel.getNumberOfRoomsAvailable());
         System.out.println("Available suites: " + hotel.getAvailableSuites());
 
