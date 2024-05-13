@@ -56,7 +56,7 @@ class TVTests
         int expectedChannel = MAX_CHANNEL;
 
         // act
-        tv.changeChannel(MAX_CHANNEL - 1);
+        tv.changeChannel(MAX_CHANNEL);
 
         // assert
         int actualChannel = tv.getChannel();
@@ -172,7 +172,7 @@ class TVTests
         int expectedVolume = MAX_VOLUME;
 
         // act
-        tv.changeChannel(MAX_VOLUME - 1);
+        tv.changeVolume(MAX_VOLUME);
 
         // assert
         int actualVolume = tv.getVolume();

@@ -37,19 +37,35 @@ public class TV
     // set specific channel
     public void changeChannel(int channel)
     {
-
+        if(channel >= 2 && channel <= 13)
+        {
+            this.channel = channel;
+        }
     }
 
     // change channel up
     public void channelUp()
     {
-
+        if(this.channel < 13)
+        {
+            this.channel += 1;
+        }
+        else
+        {
+            this.channel = 1;
+        }
     }
 
     // change channel down
     public void channelDown()
     {
-
+        if(this.channel > 2)
+        {
+            this.channel -= 1;
+        }
+        else{
+            this.channel = 13;
+        }
     }
 
 
@@ -58,19 +74,28 @@ public class TV
     // set specific volume
     public void changeVolume(int volume)
     {
-
+        if(volume >= 0 && volume <= 10)
+        {
+            this.volume = volume;
+        }
     }
 
 
     // turn volume up
     public void volumeUp()
     {
-
+        if(this.volume < 10)
+        {
+            this.volume += 1;
+        }
     }
 
     // turn volume down
     public void volumeDown()
     {
-
+        if(this.volume > 0)
+        {
+            this.volume -= 1;
+        }
     }
 }
