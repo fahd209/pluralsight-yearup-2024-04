@@ -18,7 +18,6 @@ public class Main {
         System.out.println("Enter your full name: ");
         String name[] = userInput.nextLine().split(" ");
 
-
         return name;
     }
 
