@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class VehicleTest {
 
     @Test
-    public void getValue_shouldReduce_TheCarValue_By3PercentPerEachYearOfTheVehicleAge_IfTheVehiclesAgeIsBetween0And3()
+    public void getValue_shouldReduce_TheCarValue_By3PercentPerYearOfTheVehicleAge_IfTheVehiclesAgeIsBetween0And3()
     {
         //arrange
         Vehicle test = new Vehicle("Test", "02/02/2022", 30000, "Honda accord", 2022, 10000);
