@@ -67,7 +67,7 @@ public class AccountFileService
                 String type = "checking";
                 if(account instanceof SavingsAccount) type = "savings";
 
-                writer.printf("%s|%d|%s|%f\n", type, account.getAccountNumber(), account.getOwner(), account.getBalance());
+                writer.printf("%s|%d|%s|%.2f\n", type, account.getAccountNumber(), account.getOwner(), account.getBalance());
             }
         }
         catch (IOException e)

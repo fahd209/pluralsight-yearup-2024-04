@@ -1,5 +1,7 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.BankAccount;
+
 import java.util.Scanner;
 
 public class UserInterface
@@ -40,5 +42,57 @@ public class UserInterface
     {
         System.out.println();
         System.out.println(message);
+    }
+
+    public static double getDepositAmount()
+    {
+        System.out.println();
+        System.out.print("Enter deposit amount: ");
+        return Double.parseDouble(in.nextLine());
+    }
+
+    public static int getFirstAccountNumber()
+    {
+        System.out.println();
+        System.out.print("Enter the first accounts number: ");
+        return Integer.parseInt(in.nextLine());
+    }
+
+    public static int getSecondAccountNumber()
+    {
+        System.out.println();
+        System.out.print("Enter the seconds account number: ");
+        return Integer.parseInt(in.nextLine());
+    }
+
+    public static double getTransferAmount(BankAccount fromAccount, BankAccount toAccount)
+    {
+        System.out.println();
+        System.out.println("Hi " + fromAccount.getOwner() + ", how much do you want to send to " + toAccount.getOwner());
+        System.out.print("Enter amount: ");
+        return Double.parseDouble(in.nextLine());
+    }
+
+    public static String getNewAccountType()
+    {
+        System.out.println();
+        System.out.println("What type of account are you opening? (Checkings, Savings)");
+        System.out.print("Enter input: ");
+        return in.nextLine();
+    }
+
+    public static int getNewAccountNumber()
+    {
+        System.out.println();
+        System.out.println("What will be this account's number? ");
+        System.out.print("Enter input: ");
+        return Integer.parseInt(in.nextLine());
+    }
+
+    public static String getNewAccountOwner()
+    {
+        System.out.println();
+        System.out.println("Enter the owners name: ");
+        return in.nextLine();
     }
 }
