@@ -61,6 +61,7 @@ public class BankApplication
 
     public void withdraw()
     {
+        //searching for account with account number
         int accountNumber = UserInterface.getAccountNumber();
         BankAccount account = bankAccounts.stream()
                                           .filter(acct -> acct.getAccountNumber() == accountNumber)
@@ -69,8 +70,11 @@ public class BankApplication
 
         double amount = UserInterface.getWithdrawalAmount();
         boolean canWithdraw = account.canWithdraw(amount);
+
+        //checking if we can withdraw
         if(canWithdraw)
         {
+            //withdrawing from the account that I got from the search
             account.withdraw(amount);
             UserInterface.displayMessage(amount + " was withdrawn");
             UserInterface.displayMessage("Remaining Balance: " + account.getBalance());
@@ -83,12 +87,14 @@ public class BankApplication
 
     public void deposit()
     {
+        //searching for account with account number
         int accountNumber = UserInterface.getAccountNumber();
         BankAccount bankAccount = bankAccounts.stream()
                 .filter(a -> a.getAccountNumber() == accountNumber)
                 .findFirst()
                 .get();
 
+        // adding the deposit to the account that was return from the search
         double depositAmount = UserInterface.getDepositAmount();
         bankAccount.deposit(depositAmount);
 
@@ -96,9 +102,11 @@ public class BankApplication
 
     public void transfer()
     {
+        // getting first account and second account number
         int firstAccountNumber = UserInterface.getFirstAccountNumber();
         int secondAccountNumber = UserInterface.getSecondAccountNumber();
 
+        // searching for accounts with numbers
         BankAccount fromAccount = bankAccounts.stream()
                 .filter(a -> a.getAccountNumber() == firstAccountNumber)
                 .findFirst()
@@ -109,18 +117,22 @@ public class BankApplication
                 .findFirst()
                 .get();
 
+        // getting transfer amount
         double transferAmount = UserInterface.getTransferAmount(fromAccount, toAccount);
 
+        // making the transfer
         fromAccount.transfer(toAccount, transferAmount);
     }
 
     public void addNewAccount()
     {
+        // getting account info
         String accountType = UserInterface.getNewAccountType();
         int accountNumber = UserInterface.getNewAccountNumber();
         String ownerName = UserInterface.getNewAccountOwner();
         double balance = 0;
 
+        //checking if It's a saving or checking then adding to the arrayList
         if(accountType.equalsIgnoreCase("savings"))
         {
             BankAccount bankAccount = new SavingsAccount(accountNumber, ownerName, 0);
@@ -135,6 +147,7 @@ public class BankApplication
 
     public void accountInfo()
     {
+        // getting account number
         int accountNumber = UserInterface.getAccountNumber();
 
         BankAccount bankAccount = bankAccounts.stream()
@@ -142,6 +155,7 @@ public class BankApplication
                 .findFirst()
                 .get();
 
+        // checking if account is checking or saving then displaying info
         if(bankAccount instanceof CheckingAccount)
         {
             System.out.println();
