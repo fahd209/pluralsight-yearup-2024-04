@@ -7,9 +7,16 @@ public class Square extends Rectangle
         super("Square", sideLength, sideLength);
     }
 
+
     @Override
     public double getArea()
     {
-        return 0.0;
+        return getHeight() * getHeight();
+    }
+
+    @Override
+    public String toString()
+    {
+        return String.format("%s (Height: %d x width: %d) area: %.2f", getName(), getHeight(), getHeight(), getArea());
     }
 }
