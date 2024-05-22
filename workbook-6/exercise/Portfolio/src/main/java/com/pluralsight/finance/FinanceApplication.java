@@ -30,5 +30,6 @@ public class FinanceApplication {
         {
             System.out.println(asset.toString());
         }
+        System.out.println("My total portfolio value: " + myPortfolio.getValue());
     }
 }

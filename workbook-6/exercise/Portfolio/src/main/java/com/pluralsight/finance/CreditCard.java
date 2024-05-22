@@ -51,7 +51,7 @@ public class CreditCard implements Valuable {
     @Override
     public double getValue()
     {
-        return balance;
+        return -balance;
     }
 
     public String toString()
