@@ -31,6 +31,10 @@ public class FixedList <T>{
         {
             items.add(item);
         }
+        else
+        {
+            System.out.println("Item  (" + item + "), was not added. The list is full, List size: " + maxSize);
+        }
     }
 
     public List<T> getItems()
