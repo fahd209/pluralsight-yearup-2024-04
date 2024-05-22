@@ -14,20 +14,49 @@ public class CreditCard implements Valuable {
         this.balance = balance;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     public void charge(double amount)
     {
-
+        balance -= amount;
     }
 
     public void pay(double amount)
     {
-
+        balance += amount;
     }
 
     @Override
     public double getValue()
     {
-        return 0;
+        return balance;
+    }
+
+    public String toString()
+    {
+        return String.format(" name: %s, balance: %.2f ",getName(), getBalance() );
     }
 
 }

@@ -14,6 +14,30 @@ public class BankAccount implements Valuable {
         this.balance = balance;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     public void deposit(double amount)
     {
         this.balance += amount;
@@ -26,6 +50,11 @@ public class BankAccount implements Valuable {
 
     @Override
     public double getValue() {
-        return 0;
+        return balance;
+    }
+
+    public String toString()
+    {
+        return String.format(" name: %s, balance: %.2f ",getName(), getBalance() );
     }
 }
