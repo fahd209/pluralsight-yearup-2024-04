@@ -27,7 +27,7 @@ public class Person implements Comparable<Person>{
     public int compareTo(Person person)
     {
         if(this.age != person.age) {
-            return this.lastName.compareTo(person.lastName);
+            return this.age - person.age;
         }
         else if(!this.lastName.equals(person.lastName))
         {
