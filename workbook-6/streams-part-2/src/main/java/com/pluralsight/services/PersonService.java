@@ -61,7 +61,7 @@ public class PersonService
     public List<Person> sortOldestFirst(List<Person> people)
     {
         return people.stream() // streaming list
-                .sorted(Comparator.comparingInt(Person::getAge)) // sorting age with Comparator class
+                .sorted(Comparator.comparingInt(Person::getAge)) // sorting age in distance order
                 .collect(Collectors.toList()) // changing stream to list
                 .reversed(); // reversing list
     }
@@ -69,7 +69,7 @@ public class PersonService
     public List<Employee> createEmployees(List<Person> people)
     {
         List<Employee> employees = people.stream()
-                .map(person -> {
+                .map(person -> { // mapping person object and returning employee object
                    return new Employee(person.getFirstName(), person.getLastName(), person.getAge(), person.getAge() * 3000);
                 })
                 .toList();
