@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class Person
+public class Person implements Comparable<Person>
 {
     private String firstName;
     private String lastName;
@@ -45,5 +45,10 @@ public class Person
     public void setAge(int age)
     {
         this.age = age;
+    }
+
+    public int compareTo(Person person)
+    {
+        return this.getAge() - person.getAge();
     }
 }
