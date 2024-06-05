@@ -69,8 +69,8 @@ public class PersonService
     public List<Employee> createEmployees(List<Person> people)
     {
         List<Employee> employees = people.stream()
-                .map(person -> { // mapping person object and returning employee object
-                   return new Employee(person.getFirstName(), person.getLastName(), person.getAge(), person.getAge() * 3000);
+                .map(person -> {
+                   return new Employee(person.getFirstName(), person.getLastName(), person.getAge(), person.getAge() * 3000); // mapping person object and returning employee object
                 })
                 .toList();
 
