@@ -22,19 +22,21 @@ public class Main {
                     SELECT ProductId
                         , ProductName
                         , UnitPrice
+                        , UnitsInStock
                     FROM products;
                     """;
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
+            System.out.println(" id    name                                              price                          stock           ");
             while (resultSet.next())
             {
                 int productId = resultSet.getInt("ProductId");
                 String productName = resultSet.getString("ProductName");
                 double price = resultSet.getDouble("UnitPrice");
-
-                System.out.println(productId + " | " + productName + " | " + price);
+                int stock = resultSet.getInt("UnitsInStock");
+                System.out.printf(" %-5s %-50s %-30s %-40s \n", productId, productName, price, stock);
             }
 
             connection.close();
