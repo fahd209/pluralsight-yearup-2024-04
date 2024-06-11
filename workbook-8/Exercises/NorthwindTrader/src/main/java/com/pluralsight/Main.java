@@ -181,6 +181,7 @@ public class Main {
                 int stock = productRow.getInt("UnitsInStock");
                 System.out.printf(" %-5s %-50s $%-30s %-40s \n", productId, productName, price, stock);
             }
+            connection.close();
         }
         catch (Exception e)
         {
