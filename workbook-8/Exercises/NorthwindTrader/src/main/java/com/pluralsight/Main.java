@@ -1,23 +1,20 @@
 package com.pluralsight;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
 
+    static Scanner userInput = new Scanner(System.in);
     public static void main(String[] args)
     {
-
-        Scanner userInput = new Scanner(System.in);
         int choice = 3;
         while (choice != 0)
         {
             System.out.println();
-            System.out.println("[1] - display all products");
-            System.out.println("[2] - display all customers");
+            System.out.println("[1] - Display all products");
+            System.out.println("[2] - Display all customers");
+            System.out.println("[3] - Display all categories");
             System.out.println("[0] - Exit");
             System.out.print("Enter input: ");
             choice = Integer.parseInt(userInput.nextLine());
@@ -28,6 +25,9 @@ public class Main {
                     break;
                 case 2:
                     displayAllCustomer();
+                    break;
+                case 3:
+                    displayAllCategories();
                     break;
                 case 0:
                     System.out.println();
@@ -117,7 +117,72 @@ public class Main {
                 System.out.printf("%-40s %-40s %-40s %-40s %-40s \n", contactName, companyName, city, country, Phone);
             }
 
+            connection.close();
+
         }catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+
+    public static void displayAllCategories()
+    {
+        String username = "root";
+        String password = "YUm15510n";
+
+        try
+        {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind" ,username, password);
+
+            String sql = """
+                    SELECT CategoryId
+                        , CategoryName
+                    FROM categories;
+                    """;
+
+            Statement statement = connection.createStatement();
+            ResultSet row = statement.executeQuery(sql);
+
+            System.out.println();
+            System.out.println("Category id          Category name");
+            System.out.println("-".repeat(40));
+            while(row.next())
+            {
+                int categoryId = row.getInt("CategoryId");
+                String categoryName = row.getString("CategoryName");
+
+                System.out.printf("%-20s %-20s \n", categoryId, categoryName);
+            }
+
+            System.out.print("Enter your category id: ");
+            int id = Integer.parseInt(userInput.nextLine());
+
+            String getProductStatement = """
+                    SELECT ProductId
+                        , ProductName
+                        , UnitPrice
+                        , UnitsInStock
+                    FROM products
+                    WHERE CategoryId = ? ;
+                    """;
+
+            PreparedStatement preparedStatement = connection.prepareStatement(getProductStatement);
+            preparedStatement.setInt(1, id);
+            ResultSet productRow = preparedStatement.executeQuery();
+
+            System.out.println();
+            System.out.println(" id    name                                                price                           stock           ");
+            System.out.println("-".repeat(100));
+            while (productRow.next())
+            {
+                int productId = productRow.getInt("ProductId");
+                String productName = productRow.getString("ProductName");
+                double price = productRow.getDouble("UnitPrice");
+                int stock = productRow.getInt("UnitsInStock");
+                System.out.printf(" %-5s %-50s $%-30s %-40s \n", productId, productName, price, stock);
+            }
+        }
+        catch (Exception e)
         {
             System.out.println(e);
         }
