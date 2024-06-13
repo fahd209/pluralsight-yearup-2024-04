@@ -45,4 +45,9 @@ public class Product {
     public void setUnitsInStock(int unitsInStock) {
         this.unitsInStock = unitsInStock;
     }
+
+    public String toString()
+    {
+        return String.format(" %-5s %-50s  $%-30s %-40s \n", productId, productName, unitPrice, unitsInStock);
+    }
 }

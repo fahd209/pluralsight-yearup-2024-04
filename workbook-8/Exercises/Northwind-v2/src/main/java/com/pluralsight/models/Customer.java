@@ -54,4 +54,9 @@ public class Customer {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String toString()
+    {
+        return String.format("%-40s %-40s %-40s %-40s %-40s \n", contactName, companyName, city, country, phone);
+    }
 }

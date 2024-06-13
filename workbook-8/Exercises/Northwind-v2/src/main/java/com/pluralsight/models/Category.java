@@ -24,4 +24,9 @@ public class Category {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+
+    public String toString()
+    {
+        return String.format("%-20s %-20s \n", categoryId, categoryName);
+    }
 }

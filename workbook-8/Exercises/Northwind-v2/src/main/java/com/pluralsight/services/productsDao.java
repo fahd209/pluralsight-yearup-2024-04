@@ -5,7 +5,7 @@ import com.pluralsight.models.Product;
 import java.util.List;
 
 public interface productsDao {
-    List<Product> displayAllProducts();
+    List<Product> getAllProducts();
 
-    Product displayProductByCategoryId(int categoryId);
+    List<Product> getProductByCategoryId(int categoryId);
 }
