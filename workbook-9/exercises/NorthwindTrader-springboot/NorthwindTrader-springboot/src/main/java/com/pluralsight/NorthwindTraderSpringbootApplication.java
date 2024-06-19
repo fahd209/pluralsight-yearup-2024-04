@@ -3,6 +3,7 @@ package com.pluralsight;
 import com.pluralsight.Models.Product;
 import com.pluralsight.Services.ProductDao;
 import com.pluralsight.Services.SimpleProductDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -35,7 +36,7 @@ public class NorthwindTraderSpringbootApplication {
 					displayProducts(productDao);
 					break;
 				case 2:
-					addProduct(productDao);
+					addProduct(productDao        );
 					break;
 				case 0:
 					System.out.println("Good bye");
@@ -45,6 +46,7 @@ public class NorthwindTraderSpringbootApplication {
 			}
 		}
 	}
+
 
 	public static void displayProducts(ProductDao productDao)
 	{
