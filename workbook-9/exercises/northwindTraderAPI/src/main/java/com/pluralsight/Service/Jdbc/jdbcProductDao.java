@@ -82,6 +82,80 @@ public class jdbcProductDao implements ProductDao {
         return product;
     }
 
+    @Override
+    public Product addProduct(Product product) {
+        try(Connection connection = dataSource.getConnection())
+        {
+            String sql = """
+                    INSERT INTO products
+                    (ProductName, CategoryId, UnitPrice)
+                    VALUES
+                    (?, ?, ?)
+                    """;
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, product.getProductName());
+            preparedStatement.setInt(2, product.getCategoryId());
+            preparedStatement.setDouble(3, product.getUnitPrice());
+            preparedStatement.executeUpdate();
+
+            ResultSet row = preparedStatement.getGeneratedKeys();
+            row.next();
+
+            int newId = row.getInt(1);
+
+            return getById(newId);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    @Override
+    public void updateProduct(int productId, Product product) {
+
+        try(Connection connection = dataSource.getConnection())
+        {
+            String sql = """
+                    UPDATE products
+                    SET productName = ?
+                        , categoryId = ?
+                        , UnitPrice = ?
+                    WHERE productId = ?;
+                    """;
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, product.getProductName());
+            preparedStatement.setInt(2, product.getCategoryId());
+            preparedStatement.setDouble(3, product.getUnitPrice());
+            preparedStatement.setDouble(4, productId);
+            preparedStatement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void deleteProduct(int productId) {
+        try(Connection connection = dataSource.getConnection()) {
+            String sql = """
+                    DELETE FROM products
+                    WHERE productId = ?;
+                    """;
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, productId);
+            preparedStatement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+
     public Product createProduct(ResultSet row) throws SQLException {
         int id = row.getInt("ProductId");
         String productName = row.getString("ProductName");

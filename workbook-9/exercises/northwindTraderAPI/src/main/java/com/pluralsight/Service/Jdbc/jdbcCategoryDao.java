@@ -5,6 +5,7 @@ import com.pluralsight.Model.Product;
 import com.pluralsight.Service.CategoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -77,6 +78,77 @@ public class jdbcCategoryDao implements CategoryDao {
             System.out.println(e);
         }
         return category;
+    }
+
+    @Override
+    public Category addCategory(Category category)
+    {
+        try(Connection connection = dataSource.getConnection())
+        {
+            String sql = """
+                    INSERT INTO categories
+                    (CategoryName)
+                    VALUES
+                    (?);
+                    """;
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, category.getCategoryName());
+            preparedStatement.executeUpdate();
+
+            ResultSet row = preparedStatement.getGeneratedKeys();
+            row.next();
+
+            int newId = row.getInt(1);
+            return getById(newId);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+
+        return null;
+    }
+
+    @Override
+    public void updateCategory(int categoryId, Category category) {
+
+        try(Connection connection = dataSource.getConnection()) {
+            String sql = """
+                    UPDATE categories
+                    SET CategoryName = ?
+                    WHERE CategoryId = ?;
+                    """;
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, category.getCategoryName());
+            preparedStatement.setInt(2, categoryId);
+
+            preparedStatement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void deleteCategory(int categoryId) {
+        try(Connection connection = dataSource.getConnection())
+        {
+            String sql = """
+                    DELETE FROM categories
+                    WHERE CategoryId = ?;
+                    """;
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, categoryId);
+
+            preparedStatement.executeUpdate();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
     }
 
     public Category createCategory(ResultSet row) throws SQLException {
