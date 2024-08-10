@@ -143,6 +143,7 @@ public class jdbcCategoryDao implements CategoryDao {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, categoryId);
 
+
             preparedStatement.executeUpdate();
         }
         catch (Exception e)
